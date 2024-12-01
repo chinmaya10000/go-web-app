@@ -7,7 +7,7 @@ on:
     paths-ignore:
       - 'README.md'
       - 'k8s/**'
-      - 'helm/**'
+      - 'go-web-app-chart/**'
 
 jobs:
 
@@ -75,4 +75,27 @@ jobs:
         command: quickview,cves
         only-severities: critical,high
         sarif-file: scout-report.sarif
+
+  update_values:
+    runs-on: ubuntu-latest
+
+    needs: image_build
+
+    steps:
+    - name: Checkout Code 
+      uses: actions/checkout@v4
+      with:
+        token: ${{ secrets.TOKEN }}
+
+    - name: Update Helm Chart Image
+      run: |
+        sed -i 's|appVersion: .*|appVersion: "${{ github.run_id }}"/' go-web-app-chart/values.yaml
+
+    - name: Commit and Push Changes
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "Github.action@gmail.com"
+        git add go-web-app-chart/values.yaml
+        git commit -m "Update Helm Chart Image - ${{ github.run_id }}"
+        git push
         
