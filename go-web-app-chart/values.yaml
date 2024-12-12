@@ -1,9 +1,8 @@
 appName: go-web-app
 appReplicas: 1
 appContainerName: go-web-app
-image:
-  repository: chinmayapradhan/go-web-app
-  tag: "12106100228"
+appImage: chinmayapradhan/go-web-app
+appVersion: "12106100228"
 
 containerPort: 8080
 servicePort: 80
