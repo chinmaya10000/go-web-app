@@ -1,5 +1,5 @@
 appName: go-web-app
-appReplicas: 1
+appReplicas: 2
 appContainerName: go-web-app
 appImage: chinmayapradhan/go-web-app
 appVersion: "12301497774"
