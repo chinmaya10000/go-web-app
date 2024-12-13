@@ -8,6 +8,6 @@ containerPort: 8080
 servicePort: 80
 
 ingress:
-  hostName: go-web-app.com # set this value to AWS nodebalancer address for AWS
+  hostName: a427127bfaddb4aa38e7ab59a794f667-5e5a79d5b32d698b.elb.us-east-2.amazonaws.com # set this value to AWS nodebalancer address for AWS
   pathType: Exact
   path: /
