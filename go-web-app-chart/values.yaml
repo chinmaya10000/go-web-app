@@ -8,6 +8,6 @@ containerPort: 8080
 servicePort: 80
 
 ingress:
-  hostName: acd64d27f769347188896b6b9efa08c3-419bbce555d42ada.elb.us-east-2.amazonaws.com # set this value to AWS nodebalancer address for AWS
-  pathType: Exact
+  hostName: ab490cb07ea7f4ed1975e6ff02375d9a-522065403.us-east-2.elb.amazonaws.com # set this value to AWS nodebalancer address for AWS
+  pathType: Prefix
   path: /
